@@ -1,0 +1,24 @@
+{
+  "name": "Ankh",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "prop-types": "^15",
+    "react": "^16",
+    "react-dom": "^16",
+    "react-hot-loader": "^4"
+  },
+  "devDependencies": {
+    "@neutrinojs/react": "^9.2.0",
+    "neutrino": "^9.2.0",
+    "webpack": "^4",
+    "webpack-cli": "^3",
+    "webpack-dev-server": "^3"
+  }
+}
