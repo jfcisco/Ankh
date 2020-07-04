@@ -1,18 +1,24 @@
-import mockAnimeList from './MockList';
+import { API_BASE, API_ENDPOINTS } from './Endpoints';
 
 export async function getAnime() {
-    // Better to not hard code the API endpoint
-    const animeList = await fetch("/api/Anime");
+    const requestUrl = API_BASE + API_ENDPOINTS.animeService;
+    const animeList = await fetch(requestUrl, {
+        mode: "cors"
+    });
     return animeList.json();
 }
 
-export async function playAnime(id, episode) {
-    const requestUrl = `/api/Anime/${id}`;
+export async function playAnime(id, episode = null) {
+    let requestUrl = API_BASE + API_ENDPOINTS.animeService + `/${id}`;
 
     // If episode is specified, include in request
     if (episode !== null) {
         requestUrl += `/${episode}`;
     }
-
-    return await fetch(requestUrl);
+    
+    const playingAnime = await fetch(requestUrl,
+        {
+            mode: "cors"
+        });
+    return playingAnime.json();
 }
